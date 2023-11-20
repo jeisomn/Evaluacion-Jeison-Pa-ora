@@ -1,0 +1,56 @@
+<div>
+    <p>Lista notas</p>
+    <ul *ngFor="let r of notas">
+      <li class="nota-item">
+        <div class="nota-header">
+          <p class="nombre-title">Nombre:</p>
+          <h3>{{ r.nombre }}</h3>
+        </div>
+        <div class="nota-content">
+          <div class="column">
+            <p class="fecha-title">Fecha:</p>
+            <p>{{ r.fecha }}</p>
+          </div>
+          <div class="column">
+            <p class="pasos-title">Nota:</p>
+            <p>{{ r.nota }}</p>
+          </div>
+          <div class="column">
+            <p class="pasos-title">Etiqueta:</p>
+            <p>{{ r.etiquetas }}</p>
+          </div>
+        </div>
+          <button class="eliminar" (click)="eliminarNotas(r)">Eliminar</button>
+      </li>
+    </ul>
+  </div>
+
+  <div>
+    <p>Lista Notas FireBase</p>
+    <ul *ngFor="let r of listaNotas | async">
+      <li class="nota-item">
+        <div class="receta-header">
+
+          <h3>{{ r.nombre }}</h3>
+        </div>
+        <div class="nota-content">
+          <div class="column">
+            <p class="nota-title">Nota:</p>
+            <p class="nota-content">{{ r.nota }}</p>
+          </div>
+          <div class="column">
+            <p class="fecha-title">Fecha:</p>
+            <p class="fecha-content">{{ r.fecha }}</p>
+          </div>
+          <div class="column">
+            <p class="etiqueta-title">Etiqueta:</p>
+            <p class="etiquetas-content">{{ r.etiquetas }}</p>
+          </div>
+             <a routerLink="/paginas/recetas/{{r.uid}}"></a>
+        </div>
+        <div class="nota-actions">
+          <button class="eliminar" (click)="eliminarNotaFire(r.uid)">Eliminar</button>
+        </div>
+      </li>
+    </ul>
+  </div>

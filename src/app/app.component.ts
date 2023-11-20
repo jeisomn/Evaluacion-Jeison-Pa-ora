@@ -7,4 +7,10 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'Evalucion-Jeison-Panora';
+
+  paginas = [
+    { enlace: 'Inicio', path: 'pages/inicio' },
+    { enlace: 'Lista', path: 'pages/lista' },
+
+  ];
 }
